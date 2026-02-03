@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>For You 💕</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --pink: #f7c1d9;
+      --rose: #f4a3c0;
+      --lavender: #d8c7ff;
+      --gold: #e8c27a;
+      --text: #4a2b3c;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      background: linear-gradient(135deg, #fff1f7, #fdf7ff);
+      overflow-x: hidden;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 18px;
+      animation: floatUp 8s linear infinite;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 0; }
+      10% { opacity: 0.7; }
+      100% { transform: translateY(-120vh) scale(1.4); opacity: 0; }
+    }
+
+    header {
+      text-align: center;
+      padding: 120px 20px 80px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      margin-bottom: 10px;
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.04); }
+    }
+
+    h1 span {
+      color: var(--rose);
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      opacity: 0.8;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 0 auto 100px;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(10px);
+      border-radius: 30px;
+      padding: 50px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .card p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 34px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--rose), var(--lavender));
+      color: white;
+      font-weight: 400;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(244,163,192,0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .button:hover {
+      transform: scale(1.08) rotate(-1deg);
+      box-shadow: 0 15px 40px rgba(244,163,192,0.6);
+    }
+
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      font-size: 0.9rem;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>For <span>Her Name</span> 💖</h1> <!-- 💖 EDIT ME -->
+    <div class="subtitle">A tiny corner of the internet that belongs to us</div>
+  </header>
+
+  <section>
+    <div class="card">
+      <h2>Why I Love You</h2>
+      <p>
+        <!-- 💖 EDIT ME -->
+        I love the way you laugh without realizing it.<br>
+        I love how you make everything softer just by being there.<br>
+        I love how my brain goes quiet when you smile at me.
+      </p>
+
+      <a class="button" href="#" onclick="confetti()">Click me 💕</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <h2>One Small Promise</h2>
+      <p>
+        <!-- 💖 EDIT ME -->
+        I promise to choose you — on loud days and quiet ones,<br>
+        on days we dance and days we just breathe.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    Made with ridiculous amounts of love ✨
+  </footer>
+
+  <script>
+    function spawnHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.textContent = Math.random() > 0.5 ? "💖" : "✨";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 6 + Math.random() * 6 + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 12000);
+    }
+
+    setInterval(spawnHeart, 500);
+
+    function confetti() {
+      for (let i = 0; i < 20; i++) {
+        spawnHeart();
+      }
+    }
+  </script>
+
+</body>
+</html>
